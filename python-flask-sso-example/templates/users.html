@@ -1,0 +1,71 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css')}}">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <title>Directory Sync Users</title>
+</head>
+
+<body class="container_success">
+    <div class="logged_in_nav">
+        <div class="flex">
+            <div>
+                <img src="../static/images/workos-logo-with-text.png" alt="workos logo">
+            </div>
+        </div>
+        <div class="flex">
+            <a href="/"><button class='button nav-item'>SSO Home</button></a>
+            <a href="/groups"><button class='button nav-item'>View Groups</button></a>
+        </div>
+    </div>
+
+    <div class='flex'>
+        <div class="logged_in_div_right">
+            <div class="flex_column">
+                <div class="flex width-941px space-between">
+                    <div>
+                        <p>Directory Sync Users (Directory ID: {{ directory_id }})</p>
+                    </div>
+                </div>
+                
+                <p>These users were retrieved via the WorkOS API's List Users endpoint.</p>
+
+                <div>
+                    {% if directory_users %}
+                    {% for user in directory_users %}
+                    <div class="user-card">
+                        <p><strong>ID:</strong> {{ user.id }}</p>
+                        <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                        <p><strong>Email:</strong> {{ user.emails[0].value if user.emails else 'N/A' }}</p>
+                        <p><strong>Status:</strong> <span class="status-{{ user.state.lower() }}">{{ user.state }}</span></p>
+                        <pre class="prettyprint linenums">{{ user | tojson_pretty }}</pre>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p>No users found in this directory.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        /* Add some basic styling for the user list */
+        .user-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .user-card p { margin: 5px 0; }
+        .status-active { color: green; font-weight: bold; }
+        .status-suspended { color: orange; font-weight: bold; }
+        pre.prettyprint {
+            border: 1px solid #ccc;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</body>
+</html>

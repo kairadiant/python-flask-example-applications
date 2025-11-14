@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='login.css')}}">
+    <title>Login Successful</title>
 </head>
 
 <body class="container_success">
@@ -12,7 +13,11 @@
             </div>
 
         </div>
-        <div class="flex">                
+        <!-- This is the container for the navigation buttons -->
+        <div class="flex">
+            <!-- 1. ADDED: The new button that links to the DSync user list -->
+            <a href="/users"><button class='button nav-item'>Directory Sync Users</button></a>
+            
             <a href="https://workos.com/docs" target="_blank"><button class='button nav-item'>Documentation</button></a>
             <a href="https://workos.com/docs/reference" target="_blank"><button class='button nav-item'>API
                     Reference</button></a>
@@ -28,7 +33,9 @@
             <div class="flex_column">
                 <div class="flex width-941px space-between">
                     <div>
-                        <p>Profile Details</p>
+                        <!-- 2. ADDED: Displaying the user's name (Crucial for the assessment) -->
+                        <h1>Welcome, {{ first_name }}!</h1> 
+                        <p>Profile Details (SSO)</p>
                     </div>
                     <div>
                         <a href="/logout"><button class="button button-outline">Log Out</button></a>
