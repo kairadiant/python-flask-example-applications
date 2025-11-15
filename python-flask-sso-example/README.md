@@ -142,5 +142,5 @@ This example application also includes endpoints to demonstrate the Directory Sy
 ---
 ## Video Walkthrough
 
-![2025-11-14_13-17-11 (1)](https://github.com/user-attachments/assets/decb1de5-4826-4f88-a406-b922b42014d3)
+![Walkthrough GIF](https://raw.githubusercontent.com/kairadiant/python-flask-example-applications/main/python-flask-sso-example/appwalkthorugh.gif)
 
