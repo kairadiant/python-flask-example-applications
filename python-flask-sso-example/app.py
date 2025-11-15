@@ -158,30 +158,30 @@ def users():
         print(f"Unexpected error listing DSync users: {e}")
         return render_template("dsync_error.html", message=f"Error retrieving users: {e}")
 
+# Omitting since no groups were created
+# @app.route("/groups")
+# def groups():
+#     """Lists groups from the configured directory using the WorkOS API."""
+#     if not CUSTOMER_DIRECTORY_ID:
+#         return render_template("dsync_error.html", message="CUSTOMER_DIRECTORY_ID is not configured.")
 
-@app.route("/groups")
-def groups():
-    """Lists groups from the configured directory using the WorkOS API."""
-    if not CUSTOMER_DIRECTORY_ID:
-        return render_template("dsync_error.html", message="CUSTOMER_DIRECTORY_ID is not configured.")
-
-    try:
-        # Use directory_id to list the synced groups
-        response = workos_client.directory_sync.list_groups(
-            directory_id=CUSTOMER_DIRECTORY_ID,
-            limit=50,
-        )
-        return render_template(
-            "groups.html", 
-            directory_groups=response.data, 
-            directory_id=CUSTOMER_DIRECTORY_ID
-        )
-    except APIError as e:
-        print(f"WorkOS API Error listing DSync groups: {e.message}")
-        return render_template("dsync_error.html", message=f"WorkOS API Error: {e.message}")
-    except Exception as e:
-        print(f"Unexpected error listing DSync groups: {e}")
-        return render_template("dsync_error.html", message=f"Error retrieving groups: {e}")
+#     try:
+#         # Use directory_id to list the synced groups
+#         response = workos_client.directory_sync.list_groups(
+#             directory_id=CUSTOMER_DIRECTORY_ID,
+#             limit=50,
+#         )
+#         return render_template(
+#             "groups.html", 
+#             directory_groups=response.data, 
+#             directory_id=CUSTOMER_DIRECTORY_ID
+#         )
+#     except APIError as e:
+#         print(f"WorkOS API Error listing DSync groups: {e.message}")
+#         return render_template("dsync_error.html", message=f"WorkOS API Error: {e.message}")
+#     except Exception as e:
+#         print(f"Unexpected error listing DSync groups: {e}")
+#         return render_template("dsync_error.html", message=f"Error retrieving groups: {e}")
 
 
 @app.route("/webhooks/workos", methods=["POST"])
