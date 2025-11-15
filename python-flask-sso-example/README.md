@@ -141,6 +141,5 @@ This example application also includes endpoints to demonstrate the Directory Sy
     * **View Directory Data:** Navigate to the `/directories` endpoint in your running application to fetch and display the users and groups from the connected directory.
 ---
 ## Video Walkthrough
-
-![Walkthrough GIF](https://raw.githubusercontent.com/kairadiant/python-flask-example-applications/main/python-flask-sso-example/appwalkthorugh.gif)
+[Screen Recording Link](https://github.com/kairadiant/python-flask-example-applications/blob/main/python-flask-sso-example/appwalkthorugh.gif)
 
