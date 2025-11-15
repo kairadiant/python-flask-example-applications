@@ -139,6 +139,8 @@ This example application also includes endpoints to demonstrate the Directory Sy
 4.  **Test the Sync:**
     * **Listen for Events:** The app is configured to handle webhooks for Directory Sync events at `/webhooks/workos-directory-sync`. If you are using the Mock Directory, you can manually trigger events.
     * **View Directory Data:** Navigate to the `/directories` endpoint in your running application to fetch and display the users and groups from the connected directory.
-
 ---
+## Video Walkthrough
+
+![2025-11-14_13-17-11 (1)](https://github.com/user-attachments/assets/aa54a05b-1e24-4f08-b380-6670531ee0db)
 
